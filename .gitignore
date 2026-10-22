@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env*
+*.pkl
+*.csv
+*.xlsx
+tools/setqa/nus-3244-setqa/
+data/
+*.log
+.pytest_cache/
+output/
