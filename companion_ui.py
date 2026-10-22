@@ -39,14 +39,12 @@ def _lab(kind):
             if demo and upload is None and not folder:
                 st.warning('Synthetic data tests the workflow only. These metrics do not establish model quality.')
             if st.button('Train and validate', key=key+'_train'):
-                st.session_state.pop(key, None)
                 with st.spinner('Fitting independent validation folds, then final model...'):
                     result = train(frame, kind)
                 st.session_state[key] = result
                 st.session_state[key+'_fingerprint'] = fingerprint
                 st.success('Training complete. Validation predictions were produced on held-out groups.')
     except (ValueError, KeyError, TypeError, OSError) as exc:
-        st.session_state.pop(key, None)
         st.error(str(exc))
     if key not in st.session_state:
         st.info('Upload your labeled CSV to train a model. No private datasets or pretrained weights are bundled.')

@@ -24,7 +24,7 @@ The launcher starts the integrated Streamlit app on localhost. Stop it with Ctrl
 6. **SetQA:** numbered stories, inventory walkthrough, labeled evaluation, unlabeled submissions, readable answers and errors. Each story starts at line 1. Gold labels after a tab contain **item names**, not numeric offsets. Predictions are offsets in normalized story text.
 7. **Text experiments:** session-local authorship/essay training, held-out validation, vocabulary inspection, single predictions and batch exports.
 
-Settings apply to documents and queries. Pending changes disable search until a successful rebuild. Failed imports/builds preserve valid work; changed inputs hide outdated results. Session state is in memory and is lost when the session/server closes. Download work you want to retain.
+Settings apply to documents and queries. Pending changes disable search until a successful rebuild. Failed imports/builds and failed companion retraining preserve valid work; changed inputs block use of outdated results or models. Restoring the last successfully trained input makes that model available again. Session state is in memory and is lost when the session/server closes. Download work you want to retain.
 
 ## Algorithms
 

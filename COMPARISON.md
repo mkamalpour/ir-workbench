@@ -36,4 +36,6 @@ Run `python -m unittest discover -v` for focused engine/model/interface regressi
 
 ## Remaining limits and scope decisions
 
+Final prompt audit: **24 regression/interface tests pass**, dependency validation passes, and failed companion imports/retraining preserve the previous model while preventing predictions against changed inputs. Setup, launchers, tracked file purposes, dataset exclusions and publication metadata were rechecked. Original source folders remain untouched.
+
 The integrated UI improves workflow coherence, input/state validation, explainability and safe exports. These are demonstrated changes, not a claim of universal visual preference or perfect correctness. SetQA remains a rule-based English task solver, not general QA. Companion models are explicit lightweight baselines: the original LightGBM/random-forest/ensemble choices are not silently claimed equivalent or superior. They need separate representative evaluation before practical use. No pretrained model, private essay, licensed corpus or presentation media is published. Original files remain untouched outside this repository.

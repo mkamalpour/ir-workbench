@@ -67,6 +67,20 @@ class InterfaceTests(unittest.TestCase):
             self.app.button(key=key + '_predict').click().run()
             self.assertFalse(self.app.exception)
 
+    def test_failed_companion_import_preserves_trained_model(self):
+        key = 'companion_author'
+        self.app.checkbox(key=key + '_demo').check().run()
+        self.app.button(key=key + '_train').click().run()
+        fingerprint = self.app.session_state[key + '_fingerprint']
+        self.app.text_input(key=key + '_folder').set_value('nonexistent-pan-folder-for-regression').run()
+        self.assertTrue(self.app.error)
+        self.assertIn(key, self.app.session_state)
+        self.assertEqual(self.app.session_state[key + '_fingerprint'], fingerprint)
+        self.assertFalse(any(button.key == key + '_predict' for button in self.app.button))
+        self.app.text_input(key=key + '_folder').set_value('').run()
+        self.assertTrue(any(button.key == key + '_predict' for button in self.app.button))
+        self.assertFalse(self.app.exception)
+
 
 if __name__ == '__main__':
     unittest.main()
