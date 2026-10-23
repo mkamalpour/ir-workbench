@@ -3,7 +3,7 @@ import math
 import random
 import unittest
 
-from core import Document, SearchIndex, Settings, demo_documents, evaluate_rankings, parse_documents, parse_qrels, tokenize
+from ir_workbench.core import Document, SearchIndex, Settings, demo_documents, evaluate_rankings, parse_documents, parse_qrels, tokenize
 
 
 class RetrievalTests(unittest.TestCase):

@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 import statistics
 from time import perf_counter
-from core import SearchIndex, Settings, load_folder
+from ir_workbench.core import SearchIndex, Settings, load_folder
 
 
 def main():

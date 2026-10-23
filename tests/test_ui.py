@@ -10,7 +10,7 @@ def widget(elements, label):
 
 class InterfaceTests(unittest.TestCase):
     def setUp(self):
-        self.app = AppTest.from_file(str(Path(__file__).with_name('app.py'))).run(timeout=30)
+        self.app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / 'app.py')).run(timeout=30)
         self.assertFalse(self.app.exception)
 
     def test_search_batch_and_stale_config(self):

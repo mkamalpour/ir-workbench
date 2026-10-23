@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 def load(name, path):
     spec = importlib.util.spec_from_file_location(name, ROOT / path)

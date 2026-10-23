@@ -32,7 +32,7 @@ Windows, project-local Python 3.13.5 environment; dependencies recorded in `requ
 - **Browser:** actual desktop and 375-pixel-wide interface reviewed; search, mixed no-match/matching batch and SetQA results/download controls exercised. Final design evaluation passed after fixing Windows console encoding. Screenshots were temporary review artifacts, not added to documentation.
 - **Legacy desktop:** both windows initialized; a combined same-process smoke test emitted Tk shutdown callbacks, so this does not establish complete desktop workflow correctness.
 
-Run `python -m unittest discover -v` for focused engine/model/interface regressions. Run `python benchmark.py YOUR_TXT_FOLDER --stopwords YOUR_STOPWORDS_FILE` to repeat the indexed/exhaustive comparison. Timings depend on hardware, corpus and query selectivity; no universal speed claim is made.
+Run `python -m unittest discover -s tests -v` for focused engine/model/interface regressions. Run `python -m ir_workbench.benchmark YOUR_TXT_FOLDER --stopwords YOUR_STOPWORDS_FILE` to repeat the indexed/exhaustive comparison. Timings depend on hardware, corpus and query selectivity; no universal speed claim is made.
 
 ## Remaining limits and scope decisions
 

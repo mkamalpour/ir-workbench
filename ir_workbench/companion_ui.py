@@ -3,7 +3,7 @@ import io
 import hashlib
 import pandas as pd
 import streamlit as st
-from companion_core import SCORES,train,load_pan
+from ir_workbench.companion_core import SCORES,train,load_pan
 
 def render():
     st.subheader('Companion labs')
@@ -35,7 +35,7 @@ def _lab(kind):
         if frame is not None:
             fingerprint = hashlib.sha256(frame.to_json().encode()).hexdigest()
             st.write(f'{len(frame):,} rows - {len(frame.columns)} columns')
-            st.dataframe(frame.head(20), width='stretch')
+            st.dataframe(frame.head(20), use_container_width=True)
             if demo and upload is None and not folder:
                 st.warning('Synthetic data tests the workflow only. These metrics do not establish model quality.')
             if st.button('Train and validate', key=key+'_train'):
@@ -54,7 +54,7 @@ def _lab(kind):
         st.warning('Training input changed. Retrain before using the previous model.')
         return
     st.markdown('**Validation results**')
-    st.dataframe(pd.DataFrame([metrics]),width='stretch')
+    st.dataframe(pd.DataFrame([metrics]),use_container_width=True)
     st.download_button('Download validation predictions',report.to_csv(index=False),file_name=kind+'_validation.csv',key=key+'_validation')
     with st.expander('Inspect learned vocabulary'):
         st.write(f'{len(model.vectorizer.vocabulary_):,} features; preprocessing was fitted separately inside each validation fold.')
@@ -70,7 +70,7 @@ def _lab(kind):
         if author:
             st.metric('Probability of same author',f'{p:.3f}')
             st.write('Uncertain - abstain' if abs(p-.5)<margin else ('Same author' if p>=.5 else 'Different authors'))
-        else: st.dataframe(pd.DataFrame([p],columns=SCORES),width='stretch')
+        else: st.dataframe(pd.DataFrame([p],columns=SCORES),use_container_width=True)
     batch=st.file_uploader('Batch prediction CSV (text columns required)',type=['csv'],key=key+'_batch')
     if batch is not None:
         try:
@@ -85,7 +85,7 @@ def _lab(kind):
                 out['decision']=['abstain' if abs(p-.5)<margin else str(int(p>=.5)) for p in predictions]
             else:
                 for i,col in enumerate(SCORES): out[col]=predictions[:,i]
-            st.dataframe(out.head(20),width='stretch')
+            st.dataframe(out.head(20),use_container_width=True)
             st.download_button('Download batch predictions',out.to_csv(index=False),file_name=kind+'_predictions.csv',key=key+'_download')
         except (ValueError,KeyError,TypeError) as exc: st.error(str(exc))
 

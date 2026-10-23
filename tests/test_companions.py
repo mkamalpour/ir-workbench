@@ -3,7 +3,7 @@ import tempfile
 from pathlib import Path
 import pandas as pd
 import numpy as np
-from companion_core import train,SCORES,Model,load_pan,validation_groups
+from ir_workbench.companion_core import train,SCORES,Model,load_pan,validation_groups
 
 class CompanionTests(unittest.TestCase):
     def test_pan_exact_truth_segmentation(self):
