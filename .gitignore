@@ -10,3 +10,14 @@ data/
 *.log
 .pytest_cache/
 output/
+
+# Local secrets, caches and private runtime files
+.ruff_cache/
+.cache/
+.ipynb_checkpoints/
+.streamlit/secrets.toml
+*.db
+*.db-*
+*.sqlite*
+*.pem
+*.key

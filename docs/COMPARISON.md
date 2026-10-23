@@ -23,7 +23,7 @@ Kamal's assignments and SetQA are the primary product. The other assignment vari
 
 ## Measured results, 22 October 2026
 
-Windows, project-local Python 3.13.5 environment; dependencies recorded in `requirements-lock.txt`. Earlier desktop-source inspection used Python 3.11, but integrated checks use 3.13.5.
+Historical measurements used Windows and Python 3.13.5 in a project-local environment. The earlier environment lockfile is not included in the current repository; current dependency specifications are in `requirements.txt`. These large-data measurements were not repeated during the lightweight maintenance pass. Earlier desktop-source inspection used Python 3.11.
 
 - **Retrieval:** 13,000 local Yelp reference documents, 25,320 terms, Porter stemming and the supplied local stopword list, Assignment 2 IDF. Index build: **13.858 s**. Six fixed queries, five timed repetitions each after initial comparisons: indexed median **4.010 ms**, exhaustive median **13.629 ms** (about 3.4 times faster in this run). Rankings and scores matched for every query. Original Assignment 2 rankings matched for all six queries; score differences were below `1e-10`.
 - **Assignment 1 compatibility:** representative four-document corpus retained the positive cosine scores and all Euclidean/Manhattan scores/rankings. Zero-score cosine filler results were deliberately removed.

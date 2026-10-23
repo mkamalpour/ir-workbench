@@ -4,15 +4,16 @@ A local multi-tab laboratory combining university information retrieval assignme
 
 ## Run
 
-Verified on Windows with Python **3.13.5**. From this directory:
+Verified on Windows with Python **3.13.5**. From the repository root:
 
 ```powershell
 conda activate base
-python -m pip install -r requirements-lock.txt
+# Optional, only if dependencies are missing and installation is authorized:
+python -m pip install -r requirements.txt
 python workbench.py
 ```
 
-The launcher starts the integrated Streamlit app on localhost. Stop it with Ctrl+C. On macOS/Linux use `.venv/bin/python`; those platforms are untested. `requirements.txt` lists direct dependencies; the lockfile records the tested environment. No NLTK corpus download is needed. `start.ps1` is optional when PowerShell scripts are allowed.
+The launcher starts the integrated Streamlit app on localhost. Stop it with Ctrl+C. On macOS/Linux use Python from an existing compatible environment; those platforms are untested. `requirements.txt` records direct dependencies; no full-environment lockfile is included. No NLTK corpus download is needed. `start.ps1` is optional when PowerShell scripts are allowed.
 
 ## Workflow
 
