@@ -1,4 +1,4 @@
-# IR Workbench
+# Search Lab
 
 A local multi-tab laboratory combining university information retrieval assignments and Set Question Answering. Companion experiments cover authorship verification and six-dimension essay scoring. Educational software with inspectable algorithms; no hosted service, AI API or dataset download is required.
 

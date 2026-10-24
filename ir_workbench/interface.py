@@ -8,10 +8,10 @@ import streamlit as st
 from ir_workbench.core import Document, Settings, SearchIndex, demo_documents, parse_documents, load_folder, tokenize, evaluate_rankings, parse_qrels, results_csv, xlsx_bytes
 
 def main():
-    st.set_page_config(page_title="IR Workbench", layout="wide")
+    st.set_page_config(page_title="Search Lab", layout="wide")
     st.markdown('''<style>.stApp{background:#faf8f2;color:#172c3b}h1,h2,h3{color:#142e3d}h1{letter-spacing:-1.4px}div[data-testid="stMetric"]{border-top:3px solid #197b76;padding:12px 0}button:focus{outline:3px solid #c16a2d!important}.stTabs [data-baseweb="tab"]{font-weight:600;font-size:15px}section[data-testid="stSidebar"]{background:#eeeae0}</style>''', unsafe_allow_html=True)
     st.caption("INFORMATION RETRIEVAL / LOCAL LABORATORY")
-    st.title("From documents to evidence.")
+    st.title("Search Lab")
     st.write("Build a corpus, inspect its language, and understand why a result ranks.")
     ss = st.session_state
     if 'docs' not in ss: ss.docs = demo_documents()
@@ -56,7 +56,7 @@ def main():
         b.metric("Indexed terms",len(idx.postings) if idx else 0)
         c.metric("Build time",f'{idx.build_seconds:.4f}s' if idx else ' - ')
         d.metric("Index status",'Rebuild needed' if stale else 'Ready')
-        st.subheader("One workspace. Every step visible.")
+        st.subheader("Try a search, then inspect the result")
         st.markdown('1. **Corpus & preprocessing**  -  import your documents and inspect token transformations.\n2. **Search**  -  compare ranking metrics and inspect score contributions.\n3. **Index inspector**  -  examine postings and export the index.\n4. **Evaluation**  -  measure retrieval against relevance judgments.\n5. **SetQA**  -  track objects through stories and inspect answers.')
         st.info("The bundled demo needs no dataset download. Imports stay in this browser session. English Porter stemming and rule-based SetQA have language limitations.")
         with st.expander('Course context'):
